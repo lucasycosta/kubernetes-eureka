@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventario
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inventario
+  template:
+    metadata:
+      labels:
+        app: inventario
+    spec:
+      containers:
+      - name: containerinventario
+        image: lucasycosta/inventario:latest
+        ports:
+        - containerPort: 8082

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pedido
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pedido
+  template:
+    metadata:
+      labels:
+        app: pedido
+    spec:
+      containers:
+      - name: containerpedido
+        image: lucasycosta/pedido:latest
+        ports:
+        - containerPort: 8083
